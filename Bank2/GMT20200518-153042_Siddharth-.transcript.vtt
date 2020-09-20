@@ -1,0 +1,874 @@
+WEBVTT
+
+1
+00:00:03.030 --> 00:00:07.379
+Siddharth Iyer: Alright, I'm going to bring in my presentation with my URL diagram.
+
+2
+00:00:08.429 --> 00:00:29.460
+Siddharth Iyer: So, so this is the user, it's the person who interacts with the bank. Um, we have a set of functions that the user can input into like the code, which is kind of like a terminal based application where you log into a bank and you type in certain functions for
+
+3
+00:00:30.810 --> 00:00:44.850
+Siddharth Iyer: For functionality purposes. So the user can type AD account and then specify the type remove account a service type summary interest on they can deposit
+
+4
+00:00:46.110 --> 00:01:01.890
+Siddharth Iyer: An amount of money to a type of account, they can do the same with withdrawing money they can remove their profile from the bank and they can exit which is a save and a graceful break from the while loop that I have running
+
+5
+00:01:04.320 --> 00:01:08.940
+Siddharth Iyer: Know that data is passed from Maine to bank.
+
+6
+00:01:10.290 --> 00:01:12.540
+Siddharth Iyer: Where there is a
+
+7
+00:01:13.620 --> 00:01:18.900
+Siddharth Iyer: Database bunch of functions, basically. So there's ad which loads the data from the
+
+8
+00:01:20.040 --> 00:01:21.330
+Siddharth Iyer: Pickle the bank.
+
+9
+00:01:22.380 --> 00:01:26.160
+Siddharth Iyer: dot txt file. There's authenticate user, which
+
+10
+00:01:27.480 --> 00:01:43.500
+Siddharth Iyer: Basically allows the user who inputs their login information to check whether they are in the list. The Dictionary of customers. Um, I can to how I do that later on.
+
+11
+00:01:44.580 --> 00:01:50.100
+Siddharth Iyer: So, and there is at customer move customer set working customer, which
+
+12
+00:01:51.120 --> 00:02:10.170
+Siddharth Iyer: Sets the current user of the bank. So it selects a customer object from customers and sets them as the main working customer depending on the login information. There's an account remove account. This is for basically to add
+
+13
+00:02:11.220 --> 00:02:14.520
+Siddharth Iyer: Types of checking accounts and savings accounts.
+
+14
+00:02:15.990 --> 00:02:31.470
+Siddharth Iyer: Deposit withdraw compute interest charge monthly fee which is like, um, it goes through the list of customers and then goes through their accounts and charges a monthly fee, depending on the account.
+
+15
+00:02:32.520 --> 00:02:45.870
+Siddharth Iyer: On their save which I mentioned before, and customer summary which basically lists, because all the, the current customer and their accounts and their balances for each account.
+
+16
+00:02:50.880 --> 00:03:04.050
+Siddharth Iyer: Then I have the customer is basically the customer object for my customers dictionary. So it's stored as a hash, which is on more hashed two people have
+
+17
+00:03:05.760 --> 00:03:06.870
+Siddharth Iyer: Name and pin.
+
+18
+00:03:08.700 --> 00:03:27.510
+Siddharth Iyer: It's I basically did that to make sure that people with the same name, don't get confused with each other. Um, I think you resolve that by making a string with like their name slash pin my just hashtag because it seems easier and kind of cooler.
+
+19
+00:03:28.530 --> 00:03:43.740
+Siddharth Iyer: Um, and each hash is the key and the value is a customer object each customer object has a an account dictionary with checking and savings each each
+
+20
+00:03:45.120 --> 00:03:57.060
+Siddharth Iyer: One of these keys has an account object on the counter object coming several types. So there's checking account. There's checking relationships. There's checks safe checking
+
+21
+00:03:58.020 --> 00:04:19.260
+Siddharth Iyer: I believe you put the safe. The restrict that one as a savings. But I think the directions were three checking in one savings on the way I have it right now. You can only have one checking and one savings account, but you can choose which type of checking one have, um,
+
+22
+00:04:21.330 --> 00:04:27.960
+Siddharth Iyer: Yeah, I, I'm not sure how banks exactly work, but this is my design. So, yeah.
+
+23
+00:04:29.640 --> 00:04:33.300
+Siddharth Iyer: And each account has
+
+24
+00:04:34.740 --> 00:04:41.910
+Siddharth Iyer: A constant with the respective fees associated with that account there is
+
+25
+00:04:42.960 --> 00:04:56.790
+Siddharth Iyer: Balance. There's get balance deposit withdraw charge monthly fee and each one has a dunder string as well because the
+
+26
+00:04:59.160 --> 00:05:04.140
+Siddharth Iyer: When I basically say summary. It basically returns the string.
+
+27
+00:05:05.730 --> 00:05:11.220
+Siddharth Iyer: Output of that. It's basically print account and it returns
+
+28
+00:05:12.510 --> 00:05:16.470
+Siddharth Iyer: Everything kind of smoothly up the chain. So, yeah.
+
+29
+00:05:17.520 --> 00:05:21.180
+Siddharth Iyer: So let me just move on to my code really quick.
+
+30
+00:05:23.640 --> 00:05:25.320
+Siddharth Iyer: I hope you continue
+
+31
+00:05:27.450 --> 00:05:42.000
+Siddharth Iyer: So this is my code. So it starts off in Maine, where the user creates a bank object and it loads the data from Bangkok text, which is currently empty right now.
+
+32
+00:05:43.200 --> 00:05:47.100
+Siddharth Iyer: Because there are no users added on it.
+
+33
+00:05:49.560 --> 00:06:02.220
+Siddharth Iyer: welcomes you to the bank of Stevens and I'm here we have the login and new user functionality. So while bank dot get working customer equals none.
+
+34
+00:06:02.760 --> 00:06:16.320
+Siddharth Iyer: While like the bank doesn't have a set working customer, you keep asking to login with an L or creating a profile with and then if the user types L, then we
+
+35
+00:06:17.400 --> 00:06:40.650
+Siddharth Iyer: Go to login functionality. So we asked the username and the pin and we go to bank dot authenticate user and if if it returns true and we set the working customer as this username and pin so I can just go to bank very quickly and show you authenticate user
+
+36
+00:06:47.130 --> 00:06:48.300
+Siddharth Iyer: Should be up here.
+
+37
+00:06:49.890 --> 00:07:09.420
+Siddharth Iyer: Or here authenticate user. So, um, yeah. If the hashed name and pin the hash to pull off naming pin is in self customers, which is a dictionary right up there. I'm a returns true L sort of returns false
+
+38
+00:07:10.590 --> 00:07:16.560
+Siddharth Iyer: So yeah, and then if this doesn't work. We have an incorrect login
+
+39
+00:07:18.240 --> 00:07:34.950
+Siddharth Iyer: Response and then it just loops back to login or creating profile and if the user types in new user. It asks them for their username age, phone number, email and overdraft protocol, which is basically
+
+40
+00:07:36.150 --> 00:07:44.670
+Siddharth Iyer: If they were drawn amount to greater than what they have as their balance it declines that whole transaction.
+
+41
+00:07:46.260 --> 00:07:52.860
+Siddharth Iyer: They can set that as standard or decline and then it adds a customer.
+
+42
+00:07:53.940 --> 00:07:58.140
+Siddharth Iyer: In using bank with the specified information.
+
+43
+00:08:00.240 --> 00:08:12.060
+Siddharth Iyer: And if the user decides to just throw in some random letters or something you just handles that gracefully by repeatedly saying enter L or an
+
+44
+00:08:15.360 --> 00:08:16.230
+Siddharth Iyer: M.
+
+45
+00:08:17.910 --> 00:08:24.300
+Siddharth Iyer: Yes. So list functions is basically set of functions that the user can use
+
+46
+00:08:25.620 --> 00:08:47.610
+Siddharth Iyer: To interact with the bank arm. It's kind of like a live response type thing. It's like a live interaction, so they can add account remove account summary interest deposit withdraw and see their customer profile or exit. So it's kind of like a terminal where they like just work.
+
+47
+00:08:49.140 --> 00:08:51.330
+Siddharth Iyer: And let's go back.
+
+48
+00:08:54.210 --> 00:09:00.900
+Siddharth Iyer: Here. So now we go to test cases to test the functionality of all these I have
+
+49
+00:09:02.160 --> 00:09:04.050
+Siddharth Iyer: The following code.
+
+50
+00:09:05.520 --> 00:09:10.890
+Siddharth Iyer: I'll get to that at the end of affirmed on going through all the other modules.
+
+51
+00:09:13.200 --> 00:09:26.550
+Siddharth Iyer: And so for bank. We have the Minutes initialized has an empty customers dictionary, a file name I specified in Maine, you saw bank that text, which is over here somewhere.
+
+52
+00:09:27.570 --> 00:09:49.290
+Siddharth Iyer: And I'm mystically if the file is specified then you try to open the file. Um, if it's if it doesn't exist, then you open with right and create the file and then while true you just load all the
+
+53
+00:09:51.990 --> 00:09:57.570
+Siddharth Iyer: Stuff that you stored in there before to customer and then self doubt add customer
+
+54
+00:09:58.800 --> 00:10:00.420
+Siddharth Iyer: Which is right over here.
+
+55
+00:10:01.650 --> 00:10:09.330
+Siddharth Iyer: It adds the hash and customer on into the customers dictionary.
+
+56
+00:10:12.510 --> 00:10:13.380
+Siddharth Iyer: Pickle Rick
+
+57
+00:10:17.790 --> 00:10:19.650
+Siddharth Iyer: You already saw authenticate user
+
+58
+00:10:20.940 --> 00:10:38.970
+Siddharth Iyer: Add customer basically takes a randomly generated pin on ads that to this customer object that's created right here with name pin age from email and overdraft so you can see customer
+
+59
+00:10:40.830 --> 00:10:51.570
+Siddharth Iyer: Has those attributes and if the overdraft fee is not specified, you can always just defaulted declined because that's just a fact.
+
+60
+00:10:52.830 --> 00:10:53.550
+Siddharth Iyer: Um,
+
+61
+00:10:56.430 --> 00:11:07.800
+Siddharth Iyer: Yeah, and then remove customer. It basically deletes the working customer in the value key pair in customers.
+
+62
+00:11:09.000 --> 00:11:14.640
+Siddharth Iyer: On set working customer sets the working customer to the hash and of name and pin.
+
+63
+00:11:16.080 --> 00:11:24.780
+Siddharth Iyer: Get working customer returns the current customer I'm that account, which is like the savings and check things
+
+64
+00:11:26.700 --> 00:11:38.010
+Siddharth Iyer: It goes to the customer object and select an account and then you have to specify the type. So for the type, you can have like restricted.
+
+65
+00:11:38.730 --> 00:11:50.100
+Siddharth Iyer: On relationships checking or savings and if you decide to add like to checking it would give you an error because I only allow one checking at a time.
+
+66
+00:11:51.450 --> 00:11:53.640
+Siddharth Iyer: It'll gets handled in customer
+
+67
+00:11:55.680 --> 00:12:08.310
+Siddharth Iyer: To remove. So if you want to tag, like a different checking account, you would have to remove your current account and add a new account. Um, so yeah. To remove you need to specify type
+
+68
+00:12:10.020 --> 00:12:23.580
+Siddharth Iyer: Deposit and withdraw because of my kind of chained structure that I showed you in my you ML diagram on it just called working customer and it calls deposit again.
+
+69
+00:12:24.690 --> 00:12:29.340
+Siddharth Iyer: Which is function in customer. And then in checking account as well.
+
+70
+00:12:31.200 --> 00:12:42.540
+Siddharth Iyer: Which was the same thing. It just SUBTRACT THAT AMOUNT based on the decline protocol that we have compute interest. It just gets customer and then
+
+71
+00:12:43.530 --> 00:12:59.010
+Siddharth Iyer: Computes interest based on the rate at Bank of America it because the customer contains all the accounts that can just sum up the total and I'm just multiply it by the interest rate and turns it
+
+72
+00:13:00.480 --> 00:13:14.310
+Siddharth Iyer: And here we have charged monthly fee. So for each customer in our customers list we get their age and if it's over 24 then we charge them a monthly fee.
+
+73
+00:13:15.000 --> 00:13:29.160
+Siddharth Iyer: I'm obviously there's other specifications, um, other than just age. So like for savings account and stuff. If it's a home if they have more than 1500 dollars in their balance, they can
+
+74
+00:13:31.020 --> 00:13:35.370
+Siddharth Iyer: They don't have to pay them a fee fee. That's all handled later on into that.
+
+75
+00:13:36.390 --> 00:13:37.110
+Siddharth Iyer: I'm
+
+76
+00:13:38.190 --> 00:13:39.750
+Siddharth Iyer: Save basically
+
+77
+00:13:41.070 --> 00:13:48.090
+Siddharth Iyer: It opens a file object in right mode and for each customer in
+
+78
+00:13:49.110 --> 00:13:58.170
+Siddharth Iyer: That custom customer customers dictionary it dumps the customer into the file object and it closes it
+
+79
+00:13:59.610 --> 00:14:10.410
+Siddharth Iyer: Customer so many basically just represent returns the string representation of customer. I'll show you the thunder string there.
+
+80
+00:14:12.300 --> 00:14:28.080
+Siddharth Iyer: So here we are, import savings account checking safe checking checking account and checking relations because this is where all our accounts are going to be held in self dot account.
+
+81
+00:14:29.340 --> 00:14:30.150
+Siddharth Iyer: Um,
+
+82
+00:14:31.950 --> 00:14:46.260
+Siddharth Iyer: Yeah. So these are the instance variables. We have our accounts dictionary name pin age total phone, email overdraft um yeah
+
+83
+00:14:48.000 --> 00:14:55.710
+Siddharth Iyer: Then there's an article on this bit of code right here. It just ensures that I'm
+
+84
+00:14:56.730 --> 00:15:04.560
+Siddharth Iyer: Checking only has one account associated with it. They can either be checking relationships are restricted.
+
+85
+00:15:08.880 --> 00:15:25.620
+Siddharth Iyer: And we have here's where we add on the account. So if user wants to checking, we added checking to the checking key. They want a relationship account we add that to the tracking
+
+86
+00:15:26.520 --> 00:15:37.890
+Siddharth Iyer: They wanted or restricted checking the yet that they're checking key or if they want to just a generic savings because there was only one specified and PDFs that you said
+
+87
+00:15:39.240 --> 00:15:41.220
+Siddharth Iyer: I add that to the savings key.
+
+88
+00:15:42.780 --> 00:15:47.310
+Siddharth Iyer: And if they just add like nonsense value in that thing. We just
+
+89
+00:15:48.990 --> 00:15:53.820
+Siddharth Iyer: reply with invalid type of account just to handle things gracefully.
+
+90
+00:15:55.980 --> 00:16:08.010
+Siddharth Iyer: Um, remove account, you can either specify checking or savings and if that is in the accounts that we currently have for that user. It will delete that Elsa return error.
+
+91
+00:16:12.450 --> 00:16:29.610
+Siddharth Iyer: It's positive, you have to specify checking or saving it gets the type in the accounts, it adds that to the total amount that the user has. So the total right here is basically
+
+92
+00:16:30.660 --> 00:16:39.390
+Siddharth Iyer: Keeping track of the total amount that are in all the accounts, instead of for living through all the accounts. I just decided that, because the users, basically.
+
+93
+00:16:39.870 --> 00:16:52.050
+Siddharth Iyer: The total amount of money. The user has is just a some of their deposits and withdrawals I add to total when we deposit and subtract from total when
+
+94
+00:16:53.970 --> 00:16:59.370
+Siddharth Iyer: When we withdraw. So yeah, just, it's just a less
+
+95
+00:17:01.950 --> 00:17:05.070
+Siddharth Iyer: Computing intensive way of keeping track of.
+
+96
+00:17:06.450 --> 00:17:09.090
+Siddharth Iyer: The total amount of money or user has
+
+97
+00:17:11.790 --> 00:17:26.820
+Siddharth Iyer: Control basically their protocol is decline it checks if their balances greater than the amount that they have and then it would troughs whatever needs to withdraw.
+
+98
+00:17:27.390 --> 00:17:37.770
+Siddharth Iyer: Or if if the user tries to take out more money than they actually have it gives an error. You can withdraw more than you have transaction cancelled.
+
+99
+00:17:39.000 --> 00:17:40.920
+Siddharth Iyer: So nothing goes through
+
+100
+00:17:42.000 --> 00:17:50.760
+Siddharth Iyer: Now if their protocol or standard a basically just removes the money. Regardless, and they would just have a negative balance.
+
+101
+00:17:52.740 --> 00:17:59.940
+Siddharth Iyer: Computer interest accelerated Bank of America, multiply that by the total and add that to total
+
+102
+00:18:01.980 --> 00:18:05.730
+Siddharth Iyer: And returns a tax returns the rate that we calculated hear
+
+103
+00:18:06.780 --> 00:18:24.930
+Siddharth Iyer: The thunder for string is basically it has like I your customer profile and then it tabs over, I think, and your for each of your accounts, it returns the string representation of that account. I'll show you the dunder for string.
+
+104
+00:18:26.310 --> 00:18:27.420
+Siddharth Iyer: To the accounts later.
+
+105
+00:18:30.120 --> 00:18:35.520
+Siddharth Iyer: Charter monthly fee is the same thing again. It lives through your accounts and it charges a monthly fee.
+
+106
+00:18:36.630 --> 00:18:44.640
+Siddharth Iyer: Oh, these are just the getters and setters that we have or accessories and whatever it's called accessories and modifier.
+
+107
+00:18:45.660 --> 00:18:46.590
+Siddharth Iyer: Um,
+
+108
+00:18:50.430 --> 00:19:06.600
+Siddharth Iyer: So our first type of account is checking that initialize is with balance of zero and checking monthly fee of 12 on that's just a constant string representation is it tabs over and
+
+109
+00:19:08.280 --> 00:19:09.750
+Siddharth Iyer: Returns balance.
+
+110
+00:19:11.010 --> 00:19:18.570
+Siddharth Iyer: And get bounced basically turns balance deposit just adds to the balance.
+
+111
+00:19:20.010 --> 00:19:39.690
+Siddharth Iyer: instance variable and withdraw if that it basically subtracts from the balance charge monthly fee is if this I guess there was a specification that said if they had more than 1500 dollars you don't charge them and
+
+112
+00:19:41.880 --> 00:19:55.290
+Siddharth Iyer: Yeah, if they have under 1500 you charge them a checking lovely fee and it tells the user that top down the strip in chat tries to account. I'll demonstrate this in my test cases.
+
+113
+00:19:57.120 --> 00:20:02.490
+Siddharth Iyer: Relationships is kind of the same thing the monthly fees are different.
+
+114
+00:20:05.460 --> 00:20:06.180
+Siddharth Iyer: Than the
+
+115
+00:20:08.160 --> 00:20:19.680
+Siddharth Iyer: Yeah, pretty much. Monthly fees are different because PDFs didn't really go into how checking relations and checking accounts are different. So, yeah.
+
+116
+00:20:21.330 --> 00:20:23.130
+Siddharth Iyer: So now we have safe checking
+
+117
+00:20:24.780 --> 00:20:30.660
+Siddharth Iyer: Which allows a maximum of three withdrawals per month. So we have
+
+118
+00:20:31.950 --> 00:20:39.660
+Siddharth Iyer: That initialize is where the counter for counting withdraws balance and safe monthly fee.
+
+119
+00:20:41.160 --> 00:20:42.960
+Siddharth Iyer: I'm recording
+
+120
+00:20:44.760 --> 00:20:57.480
+Siddharth Iyer: Yeah, so then deposit basically adds amount to balance we said counter sets the counter back to zero, after a month.
+
+121
+00:21:00.990 --> 00:21:08.340
+Siddharth Iyer: So if we if the counters equal to three, then you can't with the chrome or than three times.
+
+122
+00:21:09.390 --> 00:21:09.720
+Siddharth Iyer: That
+
+123
+00:21:10.740 --> 00:21:24.150
+Siddharth Iyer: And if you're this just basically ensures that you don't withdraw more than you have, um, and each time you do retry it increases your counter buy one.
+
+124
+00:21:26.610 --> 00:21:35.070
+Siddharth Iyer: Get balances returns balance string representation as we saw with tab over restricted checking balance and then return your balance.
+
+125
+00:21:36.090 --> 00:21:41.280
+Siddharth Iyer: And try charge a monthly fee just attracts the monthly fee from your account.
+
+126
+00:21:44.400 --> 00:21:45.510
+Siddharth Iyer: Savings account.
+
+127
+00:21:48.660 --> 00:21:59.580
+Siddharth Iyer: visualizes with balance counter savings, the string representation we know what that is. We know what balances deposit withdraw.
+
+128
+00:22:01.290 --> 00:22:20.550
+Siddharth Iyer: There was a specification that stated that any amount of withdraws past six would get charged 10 a $10 like a service fee or something. So after you withdraw it it charges you $10 extra for that transaction.
+
+129
+00:22:21.810 --> 00:22:22.620
+Siddharth Iyer: And
+
+130
+00:22:24.990 --> 00:22:26.460
+Siddharth Iyer: Compute interest just
+
+131
+00:22:27.780 --> 00:22:33.960
+Siddharth Iyer: calculates the interest that the savings account will receive based on the rate and
+
+132
+00:22:35.310 --> 00:22:35.640
+Siddharth Iyer: Yeah.
+
+133
+00:22:37.440 --> 00:22:38.880
+Siddharth Iyer: Charged monthly fee.
+
+134
+00:22:39.930 --> 00:22:43.920
+Siddharth Iyer: If it's over $500 it returns else
+
+135
+00:22:47.040 --> 00:22:49.110
+Siddharth Iyer: It returns. Basically nothing and
+
+136
+00:22:50.850 --> 00:22:53.460
+Siddharth Iyer: If not, then it challenges us savings fee.
+
+137
+00:22:54.720 --> 00:22:56.940
+Siddharth Iyer: So, and we go through my test cases.
+
+138
+00:23:00.750 --> 00:23:01.140
+Siddharth Iyer: Running
+
+139
+00:23:09.630 --> 00:23:12.120
+Siddharth Iyer: Okay, so here we have
+
+140
+00:23:13.140 --> 00:23:23.760
+Siddharth Iyer: Basically it's saying, welcome to bank of Stephens very innovation matters, and it prompts you for a login or create new profile.
+
+141
+00:23:24.420 --> 00:23:32.280
+Siddharth Iyer: So I'm just going to, I don't have any users right now. So this is just for testing purposes to show you that it works.
+
+142
+00:23:33.030 --> 00:23:55.830
+Siddharth Iyer: On my username. I'm just gonna say said, and I'm going to make something and it's going to say incorrect login because there's no such user created. So I'm going to create a new profile said age say 26 because just for testing purposes because if you only charges.
+
+143
+00:23:57.120 --> 00:23:59.040
+Siddharth Iyer: Monthly fees if you're over 24
+
+144
+00:24:00.390 --> 00:24:01.380
+Siddharth Iyer: Phone number
+
+145
+00:24:04.410 --> 00:24:05.340
+Siddharth Iyer: Email
+
+146
+00:24:09.780 --> 00:24:17.220
+Siddharth Iyer: And overdraft program protocols decline is. I mean, you can go with standard, but I choose to climb.
+
+147
+00:24:19.380 --> 00:24:22.290
+Siddharth Iyer: So these are our running test cases.
+
+148
+00:24:28.290 --> 00:24:45.600
+Siddharth Iyer: It starts from right here so you can see our pin is to 743. We should remember that or write that down or something. Um, so it first. What it does is it adds a new user
+
+149
+00:24:46.680 --> 00:24:47.520
+Siddharth Iyer: Um,
+
+150
+00:24:48.720 --> 00:24:49.920
+Siddharth Iyer: So where were we
+
+151
+00:24:52.140 --> 00:24:55.320
+Siddharth Iyer: Yeah, so it starts at while it
+
+152
+00:24:56.820 --> 00:25:06.030
+Siddharth Iyer: Goes to new user it prompts you for username age, phone number, email and overdraft protocol and then you use your added
+
+153
+00:25:07.500 --> 00:25:12.630
+Siddharth Iyer: And it returns. It adds you as a customer to bank.
+
+154
+00:25:14.280 --> 00:25:16.530
+Siddharth Iyer: Your opinions to 743
+
+155
+00:25:19.440 --> 00:25:20.460
+Siddharth Iyer: On
+
+156
+00:25:22.140 --> 00:25:32.070
+Siddharth Iyer: Then it goes right here prayer for for list of functions type functions. So when you do type functions, you get a
+
+157
+00:25:33.090 --> 00:25:36.990
+Siddharth Iyer: List of possible inputs that the user can provide
+
+158
+00:25:38.400 --> 00:25:49.980
+Siddharth Iyer: This would be live like a live like a terminal type thing. But just for demonstration purposes I have test cases a pre loaded in here.
+
+159
+00:25:51.060 --> 00:25:51.780
+Siddharth Iyer: Um,
+
+160
+00:25:53.250 --> 00:26:04.650
+Siddharth Iyer: So when you print customer summary, it returns your profile and since nothing has been added it just empty below that. So we add checking and savings account added account added
+
+161
+00:26:05.880 --> 00:26:12.780
+Siddharth Iyer: We print our summary, again, is your customer profile checking balance and balance each one is
+
+162
+00:26:15.270 --> 00:26:21.180
+Siddharth Iyer: Now we add $500 $300 states, respectively. You can see it. That's what happened here.
+
+163
+00:26:23.490 --> 00:26:34.080
+Siddharth Iyer: I tried to withdraw $600 which is more than the total that we have in check things and it says you can't withdraw more than you have transaction cancelled.
+
+164
+00:26:35.820 --> 00:26:44.730
+Siddharth Iyer: And then I would draw 302 hundred from checking and savings that reduces my number two 201 hundred respectively.
+
+165
+00:26:45.540 --> 00:26:59.970
+Siddharth Iyer: Um, I tried to add a restricted account while I already have a checking account says you already have a checking account. So then I removed my checking, which you can see right there at like 80
+
+166
+00:27:01.110 --> 00:27:02.970
+Siddharth Iyer: And then I
+
+167
+00:27:04.230 --> 00:27:09.360
+Siddharth Iyer: Showed that so it basically removes the checking account.
+
+168
+00:27:12.780 --> 00:27:21.360
+Siddharth Iyer: Here we have computed interest, just for testing purposes. It shows and interest of point 09
+
+169
+00:27:23.190 --> 00:27:23.760
+Siddharth Iyer: Right there.
+
+170
+00:27:24.960 --> 00:27:36.120
+Siddharth Iyer: And then for account added we add restricted then know we have savings balance of 100 restricted checking bounds of you.
+
+171
+00:27:37.170 --> 00:27:37.920
+Siddharth Iyer: I'm
+
+172
+00:27:39.390 --> 00:27:48.300
+Siddharth Iyer: And then we add $4,000 into checking. Right. I didn't print that out but it's in there.
+
+173
+00:27:50.370 --> 00:28:03.090
+Siddharth Iyer: And then if we then just a test, I would try four times from are restricted account because I'm not allowed to do that, it should return and like a graceful handling of an error.
+
+174
+00:28:04.110 --> 00:28:18.570
+Siddharth Iyer: At the fourth one. So right there you can see can't withdraw more than three times and then you can print it out again and shows you your net, which is 100 shavings with thousand 400 restricted.
+
+175
+00:28:20.250 --> 00:28:27.240
+Siddharth Iyer: And then to test the relations, I add relationships at 101 100
+
+176
+00:28:28.260 --> 00:28:28.980
+Siddharth Iyer: And
+
+177
+00:28:30.780 --> 00:28:35.670
+Siddharth Iyer: You can see can remove account added and to
+
+178
+00:28:36.780 --> 00:28:48.390
+Siddharth Iyer: Add $4,000 into relations and $200 in savings and then this basically is a proof of concept for the monthly fee that I'm going to charge
+
+179
+00:28:50.160 --> 00:28:59.310
+Siddharth Iyer: So normally this would have been just a simple date time thing, and then it would check the date, our current date versus
+
+180
+00:29:00.030 --> 00:29:07.410
+Siddharth Iyer: A preset date and it would just charge the interest rate as it gets to that date for the simple if statement, but
+
+181
+00:29:08.160 --> 00:29:23.970
+Siddharth Iyer: Since I had to demonstrate it with terminal output on my basically loop through each of the month and manually charge monthly fee and print out the customer summary each time. And here we have
+
+182
+00:29:26.820 --> 00:29:35.100
+Siddharth Iyer: A monthly fee of $8 and $25 for relationships and that happens. Each month basically
+
+183
+00:29:36.300 --> 00:29:37.410
+Siddharth Iyer: 12 times
+
+184
+00:29:39.150 --> 00:29:41.940
+Siddharth Iyer: Can see that. And our final
+
+185
+00:29:43.620 --> 00:29:54.480
+Siddharth Iyer: Bounce balance is $304 savings and $3,700 checking relationship balance. And then the final line is bank dot save
+
+186
+00:29:55.770 --> 00:29:57.690
+Siddharth Iyer: Which basically takes all this
+
+187
+00:29:59.070 --> 00:30:10.350
+Siddharth Iyer: The final state of the bank. It takes us, it captures that into bank text and basically dumped by using a pickle.
+
+188
+00:30:11.550 --> 00:30:16.800
+Siddharth Iyer: In there. So if in the future. I want to log back in the
+
+189
+00:30:17.970 --> 00:30:24.000
+Siddharth Iyer: You can just put in our name and our pin, which was to 743
+
+190
+00:30:25.500 --> 00:30:29.430
+Siddharth Iyer: Let me just log in again just to demonstrate
+
+191
+00:30:30.450 --> 00:30:33.510
+Siddharth Iyer: So login said
+
+192
+00:30:34.890 --> 00:30:36.720
+Siddharth Iyer: To 743
+
+193
+00:30:39.390 --> 00:30:43.140
+Siddharth Iyer: So here we can see that it log back in
+
+194
+00:30:45.300 --> 00:30:46.470
+Siddharth Iyer: To demonstrate
+
+195
+00:30:47.910 --> 00:30:48.630
+Siddharth Iyer: The
+
+196
+00:30:51.900 --> 00:30:54.900
+Siddharth Iyer: To demonstrate the live terminal.
+
+197
+00:30:56.400 --> 00:31:01.980
+Siddharth Iyer: With like live user interaction. Others comment. He manual stuff out.
+
+198
+00:31:03.630 --> 00:31:04.380
+Siddharth Iyer: And
+
+199
+00:31:07.440 --> 00:31:09.000
+Siddharth Iyer: reactivate
+
+200
+00:31:10.500 --> 00:31:22.020
+Siddharth Iyer: The while loop that handles that the terminal input output. And because the bank is still saved I should just be able to log back in
+
+201
+00:31:23.820 --> 00:31:38.970
+Siddharth Iyer: With my account login said Can was to 743 and they're still so these are the types of functionalities that I can add. So if I wanted a summary.
+
+202
+00:31:40.050 --> 00:31:44.670
+Siddharth Iyer: Summary. It gives me a summary of the off my current account.
+
+203
+00:31:46.410 --> 00:31:47.520
+Siddharth Iyer: I can
+
+204
+00:31:50.610 --> 00:31:51.990
+Siddharth Iyer: Deposit
+
+205
+00:31:53.550 --> 00:32:03.540
+Siddharth Iyer: Savings say $300 I'll do that summary again. So you can see $3,000 have been added to my
+
+206
+00:32:05.040 --> 00:32:08.880
+Siddharth Iyer: Savings account. And if I wanted to.
+
+207
+00:32:10.830 --> 00:32:11.820
+Siddharth Iyer: Withdraw
+
+208
+00:32:14.910 --> 00:32:28.140
+Siddharth Iyer: Savings for one to withdraw $2,000 which I don't actually have it should throw an error. You can't withdraw more than you have transaction cancelled so nothing's really changed nothing dead.
+
+209
+00:32:29.460 --> 00:32:34.830
+Siddharth Iyer: So yeah, that concludes my presentation.
+
+210
+00:32:37.080 --> 00:32:49.830
+Siddharth Iyer: To show you move customer. So remove customer basically deletes the customer profile and gracefully exits theoretically
+
+211
+00:32:50.910 --> 00:32:56.850
+Siddharth Iyer: Yeah, so that's what happened. And we can try to log back in
+
+212
+00:32:58.290 --> 00:33:00.000
+Siddharth Iyer: It should not let us
+
+213
+00:33:01.230 --> 00:33:04.260
+Siddharth Iyer: Say said to 743
+
+214
+00:33:05.490 --> 00:33:06.360
+Siddharth Iyer: Um,
+
+215
+00:33:08.640 --> 00:33:15.900
+Siddharth Iyer: Okay, so did but that's not a problem. I can just change that really quickly before submitting
+
+216
+00:33:17.100 --> 00:33:18.000
+Siddharth Iyer: Um,
+
+217
+00:33:19.980 --> 00:33:21.450
+Siddharth Iyer: Yeah, so
+
+218
+00:33:23.070 --> 00:33:24.720
+Siddharth Iyer: That concludes my presentation.
+
